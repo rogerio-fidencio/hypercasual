@@ -6,17 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
 
+    [Header("Tags To Compare")]
+    [SerializeField] private string obstacleTag = "Obstacle";
+    [SerializeField] private string endLineTag = "EndLine";
+
     [Header("Lerp")]
     [SerializeField] private Transform horizontalController;
     [SerializeField] private float lerpSpeed = 1f;
 
     private Vector3 _horizontalControllerPosition;
     private bool _canRun;
-
-    private void Start()
-    {
-        _canRun = true;
-    }
 
     void Update()
     {
@@ -36,6 +35,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             _canRun = false;
+            GameManager.Instance.GameOver();
         }
+
+        if (collision.gameObject.CompareTag("EndLine"))
+        {
+            _canRun = false;
+            GameManager.Instance.GameOver();
+        }
+    }
+
+    public void StartRunning()
+    {
+        _canRun = true;
     }
 }
