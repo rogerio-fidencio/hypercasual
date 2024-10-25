@@ -4,9 +4,34 @@ using UnityEngine;
 
 public class ItemCollectibleCoin : ItemCollectibleBase
 {
+
+    [SerializeField] private float lerp = 5f;
+    [SerializeField] private float minDistance = 1f;
+
+    private bool _collect;
+
+    protected override void Collect()
+    {
+        base.Collect();
+        _collect = true;
+    }
+
     protected override void OnCollected()
     {
         base.OnCollected();
         ItemManager.Instance.AddCoin();
+    }
+
+    private void Update()
+    {
+        if (_collect)
+        {
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerp * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
+            {
+                HideObject();
+            }
+        }
     }
 }

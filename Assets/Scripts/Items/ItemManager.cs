@@ -1,29 +1,13 @@
 using System;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
-
-    public static ItemManager Instance;
 
     public SOInt coinCount;
 
     public Action coinCountChange;
 
-
-
-    private void Awake()
-    {
-
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Start()
     {

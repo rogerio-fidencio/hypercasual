@@ -24,12 +24,10 @@ public class ItemCollectibleBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        if (graphicItem != null) graphicItem.SetActive(false);
-        Invoke("HideObject", timeToHide);
         OnCollected();
     }
 
-    private void HideObject()
+    protected virtual void HideObject()
     {
         gameObject.SetActive(false);
     }
