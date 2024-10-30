@@ -9,6 +9,9 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float speed = 1f;
     [SerializeField] private TextMeshPro uiTextpowerUp;
     [SerializeField] private Collider playerCollider;
+    
+    [Header("Animator Manager Setup")]
+    [SerializeField] private AnimatorManager animatorManager;
 
     [Header("Coin Collector Setup")]
     [SerializeField] private GameObject coinCollector;
@@ -27,6 +30,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool _canRun;
     private float _currentSpeed;
     private bool _isInvencible;
+    private float _baseSpeedToAnimation = 7f;
 
     private void Start()
     {
@@ -53,12 +57,14 @@ public class PlayerController : Singleton<PlayerController>
         if (collision.gameObject.CompareTag(obstacleTag) && !_isInvencible)
         {
             _canRun = false;
+            animatorManager.Play(AnimatorManager.AnimationType.DEAD);
             GameManager.Instance.GameOver();
         }
 
         if (collision.gameObject.CompareTag(endLineTag))
         {
             _canRun = false;
+            animatorManager.Play(AnimatorManager.AnimationType.IDLE);
             GameManager.Instance.GameOver();
         }
     }
@@ -66,6 +72,7 @@ public class PlayerController : Singleton<PlayerController>
     public void StartRunning()
     {
         _canRun = true;
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedToAnimation);
     }
 
 
