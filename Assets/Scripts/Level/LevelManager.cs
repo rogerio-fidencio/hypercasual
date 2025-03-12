@@ -13,8 +13,12 @@ public class LevelManager : MonoBehaviour
     private GameObject currentLevel;
 
     [Header("Tiles")]
-    [SerializeField] private List<GameObject> tiles;
+    [SerializeField] private List<LevelTileBase> levelTilesStart;
+    [SerializeField] private List<LevelTileBase> levelTiles;
+    [SerializeField] private List<LevelTileBase> levelTilesEnd;
+    [SerializeField] private int tileNumberStart;
     [SerializeField] private int tileNumber;
+    [SerializeField] private int tileNumberEnd;
 
     private List<LevelTileBase> _spawnedTiles;
 
@@ -50,16 +54,26 @@ public class LevelManager : MonoBehaviour
     private void CreateLevelTiles()
     {
         _spawnedTiles = new List<LevelTileBase>();
+        for (int i = 0; i < tileNumberStart; i++)
+        {
+            SpawnTile(levelTilesStart);
+        }
+
         for (int i = 0; i < tileNumber; i++)
         {
-            SpawnTile();
+            SpawnTile(levelTiles);
+        }
+
+        for (int i = 0; i < tileNumberEnd; i++)
+        {
+            SpawnTile(levelTilesEnd);
         }
     }
 
-    private void SpawnTile()
+    private void SpawnTile(List<LevelTileBase> list)
     {
-        var tile = tiles[Random.Range(0, tiles.Count)];
-        var spawnedTile = Instantiate(tile, container).GetComponent<LevelTileBase>();
+        var tile = list[Random.Range(0, list.Count)];
+        var spawnedTile = Instantiate(tile, container);
 
         if (_spawnedTiles.Count > 0)
         {
