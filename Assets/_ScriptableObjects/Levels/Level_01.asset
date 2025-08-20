@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee924cb27648d6146b88b0cfd10946a1, type: 3}
+  m_Name: Level_01
+  m_EditorClassIdentifier: 
+  levelTilesStart:
+  - {fileID: 4823868879176950847, guid: a869e34ca5b070149b8a6f524ab6c774, type: 3}
+  levelTiles:
+  - {fileID: 6369258320964899362, guid: 5c019001adfc2da41a234fcb26c85791, type: 3}
+  - {fileID: 4823868879176950847, guid: b8d646312aaa17b4db44f2396975ac57, type: 3}
+  levelTilesEnd:
+  - {fileID: 4823868879176950847, guid: 74c8b3b021b09ff4c9b0d460a243f299, type: 3}
+  tileNumberStart: 3
+  tileNumber: 5
+  tileNumberEnd: 1
