@@ -7,41 +7,17 @@ public class LevelManager : MonoBehaviour
     
     [SerializeField] private Transform container;
 
-    [SerializeField] private List<GameObject> levels;
-
     [SerializeField] private int _index;
     private GameObject currentLevel;
 
-    [Header("Tiles")]
-    [SerializeField] private List<LevelTileBase> levelTilesStart;
-    [SerializeField] private List<LevelTileBase> levelTiles;
-    [SerializeField] private List<LevelTileBase> levelTilesEnd;
-    [SerializeField] private int tileNumberStart;
-    [SerializeField] private int tileNumber;
-    [SerializeField] private int tileNumberEnd;
+    [SerializeField] private List<LevelTileBasedSetup> levelTileBasedSetups;
 
-    private List<LevelTileBase> _spawnedTiles;
+    [SerializeField] private List<LevelTileBase> _spawnedTiles = new List<LevelTileBase>();
+    private LevelTileBasedSetup _currSetup;
 
     private void Awake()
     {
         CreateLevelTiles();
-    }
-
-    private void SpawnNextLevel()
-    {
-
-        if (currentLevel != null)
-        {
-            Destroy(currentLevel);
-            _index++;
-
-            if (_index >= levels.Count)
-            {
-                ResetIndex();
-            }
-        }
-        currentLevel = Instantiate(levels[_index], container);
-        currentLevel.transform.localPosition = Vector3.zero;
     }
 
     private void ResetIndex()
@@ -53,21 +29,44 @@ public class LevelManager : MonoBehaviour
 
     private void CreateLevelTiles()
     {
-        _spawnedTiles = new List<LevelTileBase>();
-        for (int i = 0; i < tileNumberStart; i++)
-        {
-            SpawnTile(levelTilesStart);
+        clearSpawnedTiles();
+
+        if (currentLevel != null) 
+        { 
+            _index++;
+
+            if (_index >= levelTileBasedSetups.Count)
+            {
+                ResetIndex();
+            }
         }
 
-        for (int i = 0; i < tileNumber; i++)
+        _currSetup = levelTileBasedSetups[_index];
+
+        for (int i = 0; i < _currSetup.tileNumberStart; i++)
         {
-            SpawnTile(levelTiles);
+            SpawnTile(_currSetup.levelTilesStart);
         }
 
-        for (int i = 0; i < tileNumberEnd; i++)
+        for (int i = 0; i < _currSetup.tileNumber; i++)
         {
-            SpawnTile(levelTilesEnd);
+            SpawnTile(_currSetup.levelTiles);
         }
+
+        for (int i = 0; i < _currSetup.tileNumberEnd; i++)
+        {
+            SpawnTile(_currSetup.levelTilesEnd);
+        }
+    }
+
+    private void clearSpawnedTiles()
+    {
+        for (int i = _spawnedTiles.Count - 1; i >= 0; i--)
+        {
+            Destroy(_spawnedTiles[i]);
+        }
+
+        _spawnedTiles.Clear();
     }
 
     private void SpawnTile(List<LevelTileBase> list)

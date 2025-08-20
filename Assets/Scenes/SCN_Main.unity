@@ -395,18 +395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 764559420}
-  levels: []
   _index: 0
-  levelTilesStart:
-  - {fileID: 4823868879176950847, guid: a869e34ca5b070149b8a6f524ab6c774, type: 3}
-  levelTiles:
-  - {fileID: 6369258320964899362, guid: 5c019001adfc2da41a234fcb26c85791, type: 3}
-  - {fileID: 4823868879176950847, guid: b8d646312aaa17b4db44f2396975ac57, type: 3}
-  levelTilesEnd:
-  - {fileID: 4823868879176950847, guid: 74c8b3b021b09ff4c9b0d460a243f299, type: 3}
-  tileNumberStart: 1
-  tileNumber: 10
-  tileNumberEnd: 1
+  levelTileBasedSetups:
+  - {fileID: 11400000, guid: 47568db4c85b86c44abb1e9412e1c47e, type: 2}
+  _spawnedTiles: []
 --- !u!1 &399950955
 GameObject:
   m_ObjectHideFlags: 0
