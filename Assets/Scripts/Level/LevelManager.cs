@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private List<LevelTileBasedSetup> levelTileBasedSetups;
 
-    [SerializeField] private List<LevelTileBase> _spawnedTiles = new List<LevelTileBase>();
+    private List<LevelTileBase> _spawnedTiles = new List<LevelTileBase>();
     private LevelTileBasedSetup _currSetup;
 
     private void Awake()
@@ -79,6 +79,11 @@ public class LevelManager : MonoBehaviour
             var lastTile = _spawnedTiles[_spawnedTiles.Count - 1];
 
             spawnedTile.transform.position = lastTile.tileEnd.position;
+        }
+
+        foreach (var piece in spawnedTile.GetComponentsInChildren<ArtPiece>())
+        {
+            piece.changeArtModel(ArtManager.Instance.getArtSetupByArtType(_currSetup.ArtType).model);
         }
 
         _spawnedTiles.Add(spawnedTile);
