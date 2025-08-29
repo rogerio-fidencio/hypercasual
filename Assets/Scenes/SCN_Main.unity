@@ -348,6 +348,7 @@ Transform:
   m_Children:
   - {fileID: 764559420}
   - {fileID: 271241712}
+  - {fileID: 349177614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271241711
@@ -398,7 +399,57 @@ MonoBehaviour:
   _index: 0
   levelTileBasedSetups:
   - {fileID: 11400000, guid: 47568db4c85b86c44abb1e9412e1c47e, type: 2}
-  _spawnedTiles: []
+--- !u!1 &349177613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 349177614}
+  - component: {fileID: 349177615}
+  m_Layer: 0
+  m_Name: ArtManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &349177614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349177613}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.427116, y: 4.30182, z: 1.4892483}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 266539858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349177615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349177613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce4e8a450033384ab5c111b4354aaab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artSetups:
+  - artType: 0
+    model: {fileID: 22062034052450051, guid: 821a203de82590844807f49080057f17, type: 3}
+  - artType: 1
+    model: {fileID: 1800880911155068916, guid: a3756a4a3fdf7444fbacfc05ac67efe9, type: 3}
+  - artType: 2
+    model: {fileID: 5460963184009912645, guid: 72cc8aabf16ad944aac555816bd84859, type: 3}
 --- !u!1 &399950955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764559420}
   m_Layer: 0
-  m_Name: Level Container
+  m_Name: LevelContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

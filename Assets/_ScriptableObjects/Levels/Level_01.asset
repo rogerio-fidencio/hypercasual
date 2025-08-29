@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee924cb27648d6146b88b0cfd10946a1, type: 3}
   m_Name: Level_01
   m_EditorClassIdentifier: 
+  ArtType: 0
   levelTilesStart:
   - {fileID: 4823868879176950847, guid: a869e34ca5b070149b8a6f524ab6c774, type: 3}
   levelTiles:
@@ -20,5 +21,5 @@ MonoBehaviour:
   levelTilesEnd:
   - {fileID: 4823868879176950847, guid: 74c8b3b021b09ff4c9b0d460a243f299, type: 3}
   tileNumberStart: 3
-  tileNumber: 5
+  tileNumber: 15
   tileNumberEnd: 1

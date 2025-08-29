@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/level")]
 public class LevelTileBasedSetup : ScriptableObject
 {
+    public ArtManager.ArtType ArtType;
+
     [Header("Tiles")]
     public List<LevelTileBase> levelTilesStart;
     public List<LevelTileBase> levelTiles;
