@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee924cb27648d6146b88b0cfd10946a1, type: 3}
-  m_Name: Level_01
+  m_Name: Level_03
   m_EditorClassIdentifier: 
-  ArtType: 0
+  ArtType: 2
   levelTilesStart:
   - {fileID: 4823868879176950847, guid: a869e34ca5b070149b8a6f524ab6c774, type: 3}
   levelTiles:
   - {fileID: 6369258320964899362, guid: 5c019001adfc2da41a234fcb26c85791, type: 3}
   - {fileID: 4823868879176950847, guid: b8d646312aaa17b4db44f2396975ac57, type: 3}
+  - {fileID: 4823868879176950847, guid: d9837bd55c7c4494a963c10aa61bc75b, type: 3}
   levelTilesEnd:
   - {fileID: 4823868879176950847, guid: 74c8b3b021b09ff4c9b0d460a243f299, type: 3}
   tileNumberStart: 3
-  tileNumber: 5
+  tileNumber: 15
   tileNumberEnd: 1

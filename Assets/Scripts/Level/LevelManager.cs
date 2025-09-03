@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -57,6 +56,8 @@ public class LevelManager : MonoBehaviour
         {
             SpawnTile(_currSetup.levelTilesEnd);
         }
+        
+        ColorManager.Instance.ChangeColorByType(_currSetup.ArtType);
     }
 
     private void clearSpawnedTiles()
