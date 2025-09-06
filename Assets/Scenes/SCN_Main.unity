@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 764559420}
-  _index: 2
+  _index: 0
   levelTileBasedSetups:
   - {fileID: 11400000, guid: 47568db4c85b86c44abb1e9412e1c47e, type: 2}
   - {fileID: 11400000, guid: 17da4eeff4a045a46a004942deb32eb7, type: 2}
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b198f9976916814491c30f4c624ec6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   uiTextpowerUp: {fileID: 1158286925}
   playerCollider: {fileID: 1342126543}
   animatorManager: {fileID: 535577199}
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   - artType: 0
     color: {r: 1, g: 0.57169807, b: 0.75669473, a: 0}
   - artType: 1
-    color: {r: 0.2153577, g: 0.34660718, b: 0.5622641, a: 0}
+    color: {r: 0.680337, g: 0.5566037, b: 1, a: 0}
   - artType: 2
     color: {r: 0.42969665, g: 0.6679245, b: 0.28103235, a: 0}
 --- !u!1660057539 &9223372036854775807

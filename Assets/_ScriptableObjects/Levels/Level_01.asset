@@ -17,9 +17,9 @@ MonoBehaviour:
   - {fileID: 4823868879176950847, guid: a869e34ca5b070149b8a6f524ab6c774, type: 3}
   levelTiles:
   - {fileID: 6369258320964899362, guid: 5c019001adfc2da41a234fcb26c85791, type: 3}
-  - {fileID: 4823868879176950847, guid: b8d646312aaa17b4db44f2396975ac57, type: 3}
+  - {fileID: 4823868879176950847, guid: 74b765b288c476347a76f34c0514a239, type: 3}
   levelTilesEnd:
   - {fileID: 4823868879176950847, guid: 74c8b3b021b09ff4c9b0d460a243f299, type: 3}
-  tileNumberStart: 3
-  tileNumber: 5
+  tileNumberStart: 2
+  tileNumber: 2
   tileNumberEnd: 1
