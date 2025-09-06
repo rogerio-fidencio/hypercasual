@@ -402,6 +402,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47568db4c85b86c44abb1e9412e1c47e, type: 2}
   - {fileID: 11400000, guid: 17da4eeff4a045a46a004942deb32eb7, type: 2}
   - {fileID: 11400000, guid: 0d10c975a52d5e44ab25f8fa59930495, type: 2}
+  scaleTileEase: 27
+  scaleTileDuration: 0.2
+  scaleTileDelayTime: 0.2
 --- !u!1 &349177613
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -10,6 +12,12 @@ public class LevelManager : MonoBehaviour
     private GameObject currentLevel;
 
     [SerializeField] private List<LevelTileBasedSetup> levelTileBasedSetups;
+
+    [Header("Animation")]
+    [SerializeField] private Ease scaleTileEase = Ease.InOutBack;
+    [SerializeField] private float scaleTileDuration = .2f;
+    [SerializeField] private float scaleTileDelayTime =.2f;
+    
 
     private List<LevelTileBase> _spawnedTiles = new List<LevelTileBase>();
     private LevelTileBasedSetup _currSetup;
@@ -26,6 +34,21 @@ public class LevelManager : MonoBehaviour
 
     #region
 
+    private IEnumerator ScaleTiles()
+    {
+        foreach (var spawnedTile in _spawnedTiles)
+        {
+            spawnedTile.transform.localScale = Vector3.zero;
+        }
+        
+        yield return null;
+
+        for (int i = 0; i < _spawnedTiles.Count; i++)
+        {
+            _spawnedTiles[i].transform.DOScale(1, scaleTileDuration).SetEase(scaleTileEase);
+            yield return new WaitForSeconds(scaleTileDelayTime);
+        }
+    }
     private void CreateLevelTiles()
     {
         clearSpawnedTiles();
@@ -58,6 +81,8 @@ public class LevelManager : MonoBehaviour
         }
         
         ColorManager.Instance.ChangeColorByType(_currSetup.ArtType);
+
+        StartCoroutine(ScaleTiles());
     }
 
     private void clearSpawnedTiles()

@@ -19,7 +19,7 @@ public class AutoMovimentHelper : MonoBehaviour
         StartCoroutine(StartMoviment());
     }
 
-    IEnumerator StartMoviment()
+    private IEnumerator StartMoviment()
     {
 
         float time = 0;
