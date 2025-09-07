@@ -1677,9 +1677,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa53ab6fb7c675548b2a3f4e4e5ba481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleTileEase: 28
-  scaleTileDuration: 0.1
-  scaleTileDelayTime: 0.02
+  scaleCoinEase: 28
+  scaleCoinDuration: 0.1
+  scaleCoinDelayTime: 0.02
 --- !u!1 &1208046477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,6 +1883,7 @@ GameObject:
   - component: {fileID: 1342126543}
   - component: {fileID: 1342126547}
   - component: {fileID: 1342126548}
+  - component: {fileID: 1342126549}
   m_Layer: 0
   m_Name: PlayerContainer
   m_TagString: Player
@@ -1977,6 +1978,22 @@ MonoBehaviour:
   endLineTag: EndLine
   horizontalController: {fileID: 1545570884}
   lerpSpeed: 1
+  bounceHelper: {fileID: 1342126549}
+--- !u!114 &1342126549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342126541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c7895d7e888944186522c71ccf6b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceEase: 1
+  bounceDuration: 0.05
+  scaleBounce: 1.2
 --- !u!1 &1450756571
 GameObject:
   m_ObjectHideFlags: 0
