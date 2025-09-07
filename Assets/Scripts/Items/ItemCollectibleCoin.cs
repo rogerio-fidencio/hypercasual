@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemCollectibleCoin : ItemCollectibleBase
@@ -39,5 +36,6 @@ public class ItemCollectibleCoin : ItemCollectibleBase
     {
         base.OnCollected();
         ItemManager.Instance.AddCoin();
+        PlayerController.Instance.StartBounce();
     }
 }

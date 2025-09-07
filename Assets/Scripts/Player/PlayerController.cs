@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -23,6 +24,9 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Lerp")]
     [SerializeField] private Transform horizontalController;
     [SerializeField] private float lerpSpeed = 1f;
+    
+    [Header("Effects")]
+    [SerializeField] private BounceHelper bounceHelper;
 
     //privates
     private Vector3 _startPosition;
@@ -48,8 +52,16 @@ public class PlayerController : Singleton<PlayerController>
         _horizontalControllerPosition.z = transform.position.z;
         transform.position = Vector3.Lerp(transform.position, _horizontalControllerPosition, lerpSpeed * Time.deltaTime);
 
-        transform.Translate(Vector3.forward * _currentSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * (_currentSpeed * Time.deltaTime));
 
+    }
+
+    public void StartBounce()
+    {
+        if (bounceHelper != null)
+        {
+            bounceHelper.Bounce();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
