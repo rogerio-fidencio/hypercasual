@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,9 @@ public class ItemCollectibleCoin : ItemCollectibleBase
 
     private bool _collect;
 
-    protected override void Collect()
+    private void Start()
     {
-        base.Collect();
-        _collect = true;
-    }
-
-    protected override void OnCollected()
-    {
-        base.OnCollected();
-        ItemManager.Instance.AddCoin();
+        CoinAnimationManager.Instance.RegisterCoin(this);
     }
 
     private void Update()
@@ -33,5 +27,17 @@ public class ItemCollectibleCoin : ItemCollectibleBase
                 HideObject();
             }
         }
+    }
+
+    protected override void Collect()
+    {
+        base.Collect();
+        _collect = true;
+    }
+
+    protected override void OnCollected()
+    {
+        base.OnCollected();
+        ItemManager.Instance.AddCoin();
     }
 }
