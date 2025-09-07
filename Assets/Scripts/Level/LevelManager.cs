@@ -33,22 +33,7 @@ public class LevelManager : MonoBehaviour
     }
 
     #region
-
-    private IEnumerator ScaleTiles()
-    {
-        foreach (var spawnedTile in _spawnedTiles)
-        {
-            spawnedTile.transform.localScale = Vector3.zero;
-        }
-        
-        yield return null;
-
-        for (int i = 0; i < _spawnedTiles.Count; i++)
-        {
-            _spawnedTiles[i].transform.DOScale(1, scaleTileDuration).SetEase(scaleTileEase);
-            yield return new WaitForSeconds(scaleTileDelayTime);
-        }
-    }
+    
     private void CreateLevelTiles()
     {
         clearSpawnedTiles();
@@ -114,6 +99,25 @@ public class LevelManager : MonoBehaviour
 
         _spawnedTiles.Add(spawnedTile);
     }
+    
+    private IEnumerator ScaleTiles()
+    {
+        foreach (var spawnedTile in _spawnedTiles)
+        {
+            spawnedTile.transform.localScale = Vector3.zero;
+        }
+        
+        yield return null;
+
+        for (int i = 0; i < _spawnedTiles.Count; i++)
+        {
+            _spawnedTiles[i].transform.DOScale(1, scaleTileDuration).SetEase(scaleTileEase);
+            yield return new WaitForSeconds(scaleTileDelayTime);
+        }
+        
+        CoinAnimationManager.Instance.StartAnimation();
+    }
+    
     #endregion
 
 }
