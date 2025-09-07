@@ -2,16 +2,15 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinAnimationManager : Singleton<CoinAnimationManager>
 {
     
     [Header("Animation")]
-    [SerializeField] private Ease scaleTileEase = Ease.InOutBack;
-    [SerializeField] private float scaleTileDuration = .2f;
-    [SerializeField] private float scaleTileDelayTime =.2f;
+    [SerializeField] private Ease scaleCoinEase = Ease.InOutBack;
+    [SerializeField] private float scaleCoinDuration = .2f;
+    [SerializeField] private float scaleCoinDelayTime =.2f;
 
     private List<ItemCollectibleCoin> _coins;
 
@@ -46,8 +45,8 @@ public class CoinAnimationManager : Singleton<CoinAnimationManager>
 
         for (int i = 0; i < _coins.Count; i++)
         {
-            _coins[i].transform.DOScale(.7f, scaleTileDuration).SetEase(scaleTileEase);
-            yield return new WaitForSeconds(scaleTileDelayTime);
+            _coins[i].transform.DOScale(.7f, scaleCoinDuration).SetEase(scaleCoinEase);
+            yield return new WaitForSeconds(scaleCoinDelayTime);
         }
     }
 
