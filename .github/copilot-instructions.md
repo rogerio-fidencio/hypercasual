@@ -2,13 +2,13 @@
 - Project name: hypercasual
 - Unity version: Unity 2022.3.21f1
 - Active scene:
-  - Name: CoinsTile
+  - Name: SCN_Main
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Obstacle, EndLine, CoinCollector
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
-  - Name: Plane
-  - Tag: Untagged
+  - Name: PlayerContainer
+  - Tag: Player
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
