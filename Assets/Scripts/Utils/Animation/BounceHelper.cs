@@ -9,15 +9,6 @@ public class BounceHelper : MonoBehaviour
     [SerializeField] private float bounceDuration = .05f;
     [SerializeField] private float scaleBounce = 1.2f;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Bounce();
-        }
-    }
-
-
     public void Bounce()
     {
         transform.DOScale(scaleBounce, bounceDuration).SetEase(bounceEase).SetLoops(2, LoopType.Yoyo);

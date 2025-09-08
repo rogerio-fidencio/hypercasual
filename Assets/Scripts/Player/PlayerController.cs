@@ -13,7 +13,7 @@ public class PlayerController : Singleton<PlayerController>
     
     [Header("Animator Manager Setup")]
     [SerializeField] private AnimatorManager animatorManager;
-
+    
     [Header("Coin Collector Setup")]
     [SerializeField] private GameObject coinCollector;
 
@@ -28,7 +28,7 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Effects")]
     [SerializeField] private BounceHelper bounceHelper;
 
-    //privates
+
     private Vector3 _startPosition;
     private Vector3 _horizontalControllerPosition;
     private bool _canRun;
