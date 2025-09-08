@@ -8,17 +8,17 @@ public class CoinAnimationManager : Singleton<CoinAnimationManager>
 {
     
     [Header("Animation")]
-    [SerializeField] private Ease scaleCoinEase = Ease.InOutBack;
+    [SerializeField] private Ease scaleCoinEase = Ease.Linear;
     [SerializeField] private float scaleCoinDuration = .2f;
     [SerializeField] private float scaleCoinDelayTime =.2f;
 
     private List<ItemCollectibleCoin> _coins;
 
-    private void Start()
+    protected override void Awake()
     {
         _coins = new List<ItemCollectibleCoin>();
     }
-
+    
     public void RegisterCoin(ItemCollectibleCoin coin)
     {
         if (!_coins.Contains(coin))
@@ -45,7 +45,7 @@ public class CoinAnimationManager : Singleton<CoinAnimationManager>
 
         for (int i = 0; i < _coins.Count; i++)
         {
-            _coins[i].transform.DOScale(.7f, scaleCoinDuration).SetEase(scaleCoinEase);
+            _coins[i].transform.DOScale(1, scaleCoinDuration).SetEase(scaleCoinEase);
             yield return new WaitForSeconds(scaleCoinDelayTime);
         }
     }
