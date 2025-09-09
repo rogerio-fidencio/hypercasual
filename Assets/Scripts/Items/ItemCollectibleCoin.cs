@@ -36,6 +36,5 @@ public class ItemCollectibleCoin : ItemCollectibleBase
     {
         base.OnCollected();
         ItemManager.Instance.AddCoin();
-        PlayerController.Instance.StartBounce();
     }
 }
