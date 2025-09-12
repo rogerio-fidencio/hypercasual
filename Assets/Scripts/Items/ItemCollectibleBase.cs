@@ -34,6 +34,7 @@ public class ItemCollectibleBase : MonoBehaviour
 
     protected virtual void OnCollected()
     {
+        colectEffect.transform.SetParent(null);
         if (colectEffect != null) colectEffect.Play();
         if (collectSoundSource != null) collectSoundSource.Play();
         PlayerController.Instance.StartBounce();
