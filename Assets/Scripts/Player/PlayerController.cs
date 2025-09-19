@@ -27,6 +27,7 @@ public class PlayerController : Singleton<PlayerController>
     
     [Header("Effects")]
     [SerializeField] private BounceHelper bounceHelper;
+    [SerializeField] private ParticleSystem victoryEffect;
 
 
     private Vector3 _startPosition;
@@ -77,6 +78,8 @@ public class PlayerController : Singleton<PlayerController>
         {
             _canRun = false;
             animatorManager.Play(AnimatorManager.AnimationType.IDLE);
+            victoryEffect.Play();
+            
             GameManager.Instance.GameOver();
         }
     }
